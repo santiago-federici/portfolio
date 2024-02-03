@@ -1,0 +1,90 @@
+---
+import ExpressIcon from '../icons/Express.astro'
+import GithubOutlineIcon from '../icons/GithubOutline.astro'
+import ReactIcon from '../icons/React.astro'
+import LinkIcon from '../icons/Link.astro'
+
+const TAGS = {
+  EXPRESS: {
+    name: 'Express',
+    class: 'bg-white text-black',
+    icon: ExpressIcon,
+  },
+  REACT: {
+    name: 'React',
+    class: 'bg-[#087EA4] text-white',
+    icon: ReactIcon,
+  }
+}
+
+const PROJECTS = [
+  {
+    title: 'NotionClone - A tasks tracking app.',
+    description: 'NotionClone – a web application inspired by Notion – that provides users with the tools to efficiently organize their lives. Created from sratch using React and Express.',
+    link: 'https://notionclone.up.railway.app/',
+    github: 'https://github.com/santiago-federici/ReactJS-NotionClone',
+    image: '../../public/projects/notionClone.webp',
+    tags: [TAGS.EXPRESS, TAGS.REACT]
+  },
+  {
+    title: 'NotionClone - A tasks tracking app.',
+    description: 'NotionClone – a web application inspired by Notion – that provides users with the tools to efficiently organize their lives. Created from sratch using React and Express.',
+    link: 'https://notionclone.up.railway.app/',
+    github: 'https://github.com/santiago-federici/ReactJS-NotionClone',
+    image: '../../public/projects/notionClone.webp',
+    tags: [TAGS.EXPRESS, TAGS.REACT]
+  }
+] 
+---
+
+{
+  PROJECTS.map(({ image, title, tags, description, link, github }) => (
+    <article class='mb-8 flex gap-4'>
+      <img 
+        src={image} 
+        alt={`Screenshot of the project ${image}`} 
+        class='w-96 h-60 object-cover rounded' 
+      />
+      
+      <div class='p-2'>
+        <h3 class='font-bold'>{title}</h3>
+        
+        <ul class='flex gap-2 my-2'>
+          {tags.map((tag) => (
+              <li>
+                <span class={`${tag.class} font-extralight flex gap-1 items-center rounded-full text-xs px-2 w-fit`}>
+                  <tag.icon class='size-3' />
+                  {tag.name}
+                </span>
+              </li>
+          ))}
+        </ul>
+          
+        <p class="text-slate-300 mb-4">{description}</p>
+          
+        <div class='flex gap-2'>
+          <a 
+          href={github} 
+          target="_blank"
+          rel="noopener noreferrer"
+          class='flex gap-1 items-center border border-1 border-slate-500 w-fit px-2 py-1 rounded bg-slate-800 cursor-pointer'>
+          <GithubOutlineIcon class='size-5' />
+          Code
+          </a>
+
+          {
+            link &&
+            <a 
+            href={link} 
+            target="_blank"
+            rel="noopener noreferrer"
+            class='flex gap-1 items-center border border-1 border-slate-500 w-fit px-2 py-1 rounded bg-slate-800 cursor-pointer'>
+              <LinkIcon class='size-5' />
+              Code
+            </a>
+          }
+        </div>
+      </div>
+    </article>
+  ))
+}
