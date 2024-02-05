@@ -1,36 +1,41 @@
 ---
-import Badge from '../components/Badge.astro';
-import Pill from '../components/Pill.astro';
-import Layout from '../layouts/Layout.astro';
-import GithubIcon from '../icons/Github.astro';
-import LinkedInIcon from '../icons/LinkedIn.astro';
-import CodeIcon from '../icons/Code.astro';
-import SectionContainer from '../components/SectionContainer.astro';
-import Projects from '../components/Projects.astro';
+import Layout from "../layouts/Layout.astro";
+
+import AboutMe from "../components/AboutMe.astro";
+import Badge from "../components/Badge.astro";
+import Pill from "../components/Pill.astro";
+import Projects from "../components/Projects.astro";
+import SectionContainer from "../components/SectionContainer.astro";
+
+import CodeIcon from "../icons/Code.astro";
+import GithubIcon from "../icons/Github.astro";
+import LinkedInIcon from "../icons/LinkedIn.astro";
+import UserCode from "../icons/UserCode.astro";
+import SectionTitle from "../components/SectionTitle.astro";
 ---
 
 <Layout title="Santi's Portfolio - Frontend Web Developer.">
 	<main class="wrapper">
 		<SectionContainer id="top">
-			<div class='flex items-center gap-4'>
-				<img 
-				src='https://avatars.githubusercontent.com/u/88351679?v=4' 
-				alt=''
-				class='rounded-full size-16 mb-2' />
+			<div class="flex items-center gap-4">
+				<img
+					src="https://avatars.githubusercontent.com/u/88351679?v=4"
+					alt=""
+					class="rounded-full size-16 mb-2"
+				/>
 
-				<a 
-				href="https://www.linkedin.com/in/santiago-federici/"
-				target="_blank"
-				rel="noopener noreferrer">
+				<a
+					href="https://www.linkedin.com/in/santiago-federici/"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
 					<Badge>Ready to work</Badge>
 				</a>
 			</div>
 
-			<h1 class='text-white font-bold mb-4 max-sm:text-4xl'>
-				Hey, I'm Santi!
-			</h1>
-			<h3 class='w-9/12 text-pretty max-sm:text-lg max-sm:leading-5'>
-				+15 años de experiencia. Ingeniero de Software y Creador de Contenido sobre Programación de Barcelona, España 🇪🇸. Especializado en el desarrollo de aplicaciones web únicas.
+			<h1 class="text-white font-bold mb-4 max-sm:text-4xl">Hey, I'm Santi!</h1>
+			<h3 class="w-9/12 text-pretty max-sm:text-lg max-sm:leading-5 opacity-80">
+				Trainee Frontend Web Developer from Mendoza, Argentina 🇦🇷. Currently studying in the university.
 			</h3>
 
 			<ul class="flex gap-2 mt-4">
@@ -44,14 +49,23 @@ import Projects from '../components/Projects.astro';
 				</Pill>
 			</ul>
 		</SectionContainer>
-		
+
 		<SectionContainer id="projects">
-			<h2 class="flex gap-2 mb-6">
-				<CodeIcon class='size-6' />
+			<SectionTitle>
+				<CodeIcon class="size-6" />
 				Projects
-			</h2>
+			</SectionTitle>
 
 			<Projects />
+		</SectionContainer>
+
+		<SectionContainer id="about">
+			<SectionTitle>
+				<UserCode class="size-6" />
+				About Me
+			</SectionTitle>
+
+			<AboutMe />
 		</SectionContainer>
 	</main>
 </Layout>

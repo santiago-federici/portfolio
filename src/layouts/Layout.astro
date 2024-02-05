@@ -19,7 +19,10 @@ const { title } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body>
-		<div class="absolute top-0 z-[-2] h-screen w-screen bg-neutral-950 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"></div>
+		<div class="relative h-full w-full bg-slate-950">
+			<div class="fixed bottom-0 left-0 right-0 top-[-400px] bg-[radial-gradient(circle_500px_at_50%_200px,#3e3e3e,transparent)]"></div>
+		</div>
+
 		<Header />
 		<slot />
 	</body>
@@ -89,7 +92,7 @@ const { title } = Astro.props;
 	}
 
 	.wrapper {
-		width: min(100% - 3rem, 90ch);
+		width: min(100% - 5rem, 90ch);
 		margin-inline: auto;
 		position: relative;
 		display: grid;
@@ -115,6 +118,10 @@ const { title } = Astro.props;
 
 	h3 {
 		font-size: var(--step-1);
+	}
+
+	p {
+		text-wrap: pretty;
 	}
 
 	button,

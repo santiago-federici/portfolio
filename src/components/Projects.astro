@@ -2,18 +2,30 @@
 import ExpressIcon from '../icons/Express.astro'
 import GithubOutlineIcon from '../icons/GithubOutline.astro'
 import ReactIcon from '../icons/React.astro'
-import LinkIcon from '../icons/Link.astro'
+import LinkIcon from '../icons/Link.astro' 
+import CSSIcon from '../icons/CSS.astro' 
+import JSIcon from '../icons/JS.astro' 
 
 const TAGS = {
   EXPRESS: {
     name: 'Express',
-    class: 'bg-white text-black',
+    class: 'bg-slate-200 text-black',
     icon: ExpressIcon,
   },
   REACT: {
     name: 'React',
     class: 'bg-[#087EA4] text-white',
     icon: ReactIcon,
+  },
+  CSS: {
+    name: 'CSS',
+    class: 'bg-[#2965f1] text-white',
+    icon: CSSIcon,
+  },
+  JAVASCRIPT: {
+    name: 'JavaScript',
+    class: 'bg-black text-yellow-200',
+    icon: JSIcon,
   }
 }
 
@@ -27,32 +39,48 @@ const PROJECTS = [
     tags: [TAGS.EXPRESS, TAGS.REACT]
   },
   {
-    title: 'NotionClone - A tasks tracking app.',
-    description: 'NotionClone – a web application inspired by Notion – that provides users with the tools to efficiently organize their lives. Created from sratch using React and Express.',
-    link: 'https://notionclone.up.railway.app/',
-    github: 'https://github.com/santiago-federici/ReactJS-NotionClone',
-    image: '../../public/projects/notionClone.webp',
-    tags: [TAGS.EXPRESS, TAGS.REACT]
+    title: 'WeatherApp - A weather app.',
+    description: 'WeatherApp – a web application that allows you to check the weather in any city of the world. Created from sratch using React and CSS.',
+    link: 'https://weatherappbysanti.netlify.app/',
+    github: 'https://github.com/santiago-federici/WeatherAPI',
+    image: '../../public/projects/weatherApp.webp',
+    tags: [TAGS.REACT, TAGS.CSS]
+  },
+  {
+    title: 'PC Ecommerce - A PC store.',
+    description: 'An ecommerce website to buy pcs, mouses and keyboards. Created from sratch using React and CSS.',
+    link: 'https://pccomponentsecommerce.netlify.app/',
+    github: 'https://github.com/santiago-federici/ReactJS-coderhouse',
+    image: '../../public/projects/PcEcommerce.webp',
+    tags: [TAGS.REACT, TAGS.CSS]
+  },
+  {
+    title: 'Bakken - A bakery store.',
+    description: 'A website for a bakery I worked for, to sell their products online. Created from sratch using JavaScript and CSS.',
+    link: 'https://santiago-federici.github.io/javascript-coderhouse/index.html',
+    github: 'https://github.com/santiago-federici/javascript-coderhouse',
+    image: '../../public/projects/Bakken.webp',
+    tags: [TAGS.JAVASCRIPT, TAGS.CSS]
   }
 ] 
 ---
 
 {
   PROJECTS.map(({ image, title, tags, description, link, github }) => (
-    <article class='mb-8 flex gap-4'>
+    <article class='mb-8 flex flex-col lg:flex-row gap-4'>
       <img 
         src={image} 
         alt={`Screenshot of the project ${image}`} 
-        class='w-96 h-60 object-cover rounded' 
+        class='w-full h-full lg:w-96 lg:h-60 object-cover rounded border border-1 border-slate-800' 
       />
       
       <div class='p-2'>
-        <h3 class='font-bold'>{title}</h3>
+        <h3 class='text-2xl font-bold'>{title}</h3>
         
         <ul class='flex gap-2 my-2'>
           {tags.map((tag) => (
               <li>
-                <span class={`${tag.class} font-extralight flex gap-1 items-center rounded-full text-xs px-2 w-fit`}>
+                <span class={`${tag.class} flex gap-1 items-center rounded-full text-sm lg:text-xs px-2 w-fit`}>
                   <tag.icon class='size-3' />
                   {tag.name}
                 </span>
@@ -60,17 +88,21 @@ const PROJECTS = [
           ))}
         </ul>
           
-        <p class="text-slate-300 mb-4">{description}</p>
+        <p class="opacity-70 mb-4">{description}</p>
           
         <div class='flex gap-2'>
-          <a 
-          href={github} 
-          target="_blank"
-          rel="noopener noreferrer"
-          class='flex gap-1 items-center border border-1 border-slate-500 w-fit px-2 py-1 rounded bg-slate-800 cursor-pointer'>
-          <GithubOutlineIcon class='size-5' />
-          Code
-          </a>
+          {
+            github &&
+
+            <a 
+            href={github}
+            target="_blank"
+            rel="noopener noreferrer"
+            class='flex gap-1 items-center border border-1 border-slate-500 w-fit px-2 py-1 rounded bg-slate-800 cursor-pointer'>
+              <GithubOutlineIcon class='size-5' />
+             Code
+            </a>
+          }
 
           {
             link &&
@@ -80,7 +112,7 @@ const PROJECTS = [
             rel="noopener noreferrer"
             class='flex gap-1 items-center border border-1 border-slate-500 w-fit px-2 py-1 rounded bg-slate-800 cursor-pointer'>
               <LinkIcon class='size-5' />
-              Code
+              Preview
             </a>
           }
         </div>
