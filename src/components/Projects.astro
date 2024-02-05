@@ -5,6 +5,7 @@ import ReactIcon from '../icons/React.astro'
 import LinkIcon from '../icons/Link.astro' 
 import CSSIcon from '../icons/CSS.astro' 
 import JSIcon from '../icons/JS.astro' 
+import ProjectsBtns from './ProjectsBtns.astro'
 
 const TAGS = {
   EXPRESS: {
@@ -19,7 +20,7 @@ const TAGS = {
   },
   CSS: {
     name: 'CSS',
-    class: 'bg-[#2965f1] text-white',
+    class: 'bg-[#013158] text-white',
     icon: CSSIcon,
   },
   JAVASCRIPT: {
@@ -93,27 +94,18 @@ const PROJECTS = [
         <div class='flex gap-2'>
           {
             github &&
-
-            <a 
-            href={github}
-            target="_blank"
-            rel="noopener noreferrer"
-            class='flex gap-1 items-center border border-1 border-slate-500 w-fit px-2 py-1 rounded bg-slate-800 cursor-pointer'>
+            <ProjectsBtns href={github}>
               <GithubOutlineIcon class='size-5' />
              Code
-            </a>
+            </ProjectsBtns>
           }
 
           {
             link &&
-            <a 
-            href={link} 
-            target="_blank"
-            rel="noopener noreferrer"
-            class='flex gap-1 items-center border border-1 border-slate-500 w-fit px-2 py-1 rounded bg-slate-800 cursor-pointer'>
+            <ProjectsBtns href={link}>              
               <LinkIcon class='size-5' />
               Preview
-            </a>
+            </ProjectsBtns>
           }
         </div>
       </div>
