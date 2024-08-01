@@ -7,6 +7,8 @@ import ReactIcon from "../icons/React.astro";
 import LinkIcon from "../icons/Link.astro";
 import CSSIcon from "../icons/CSS.astro";
 import JSIcon from "../icons/JS.astro";
+import AstroIcon from "../icons/AstroIcon.astro";
+import FramerIcon from "../icons/Framer.astro";
 import ProjectsBtns from "./ProjectsBtns.astro";
 
 const TAGS = {
@@ -40,9 +42,28 @@ const TAGS = {
     class: "bg-black text-yellow-200",
     icon: JSIcon,
   },
+  ASTRO: {
+    name: "Astro",
+    class: "bg-[#5D16A1] text-white",
+    icon: AstroIcon,
+  },
+  FRAMER_MOTION: {
+    name: "Framer Motion",
+    class: "bg-zinc-800 text-white",
+    icon: FramerIcon,
+  },
 };
 
 const PROJECTS = [
+  {
+    title: "Landing Page - A landing page for a saas.",
+    description:
+      "A landing page for a saas that allows barbery shops to manage their appointments, earning, payments, staff and clients. This website was built using Astro, React, Tailwind CSS and Framer Motion.",
+    link: "https://apolo-landingpage.vercel.app/",
+    github: "https://github.com/santiago-federici/apolo-landingpage",
+    image: "/projects/ApoloLandingPage.webp",
+    tags: [TAGS.ASTRO, TAGS.REACT, TAGS.TAILWIND, TAGS.FRAMER_MOTION],
+  },
   {
     title: "Apolo admin - An admin dashboard.",
     description:
