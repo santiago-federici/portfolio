@@ -40,7 +40,7 @@ const { title } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body class="bg-foreground dark:bg-foreground">
+  <body class="bg-foreground">
     <slot />
   </body>
 </html>
@@ -122,6 +122,7 @@ const { title } = Astro.props;
   html {
     hanging-punctuation: first last; /* doesn't have support in all browsers yet */
     color-scheme: dark light;
+    scrollbar-gutter: stable;
   }
 
   body {
