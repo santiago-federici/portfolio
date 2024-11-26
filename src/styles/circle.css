@@ -1,0 +1,10 @@
+.intro-circle {
+  @apply bg-foreground dark:bg-background;
+  width: 240px;
+  height: 240px;
+  border-radius: 100%;
+  position: fixed;
+  top: calc(50% - 120px);
+  left: calc(50% - 120px);
+  z-index: -1;
+}
