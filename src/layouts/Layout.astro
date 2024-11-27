@@ -1,4 +1,6 @@
 ---
+import Header from "../components/header/header";
+
 import "@fontsource-variable/onest";
 import "../styles/globals.css";
 
@@ -44,6 +46,7 @@ const { title } = Astro.props;
     <title>{title}</title>
   </head>
   <body class="bg-foreground font-serif">
+    <Header client:only="react" />
     <slot />
   </body>
 </html>
