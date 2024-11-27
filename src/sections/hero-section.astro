@@ -1,3 +1,7 @@
+---
+import SectionWrapper from "@/components/section-wrapper.astro";
+---
+
 <script>
   import { animate } from "motion";
 
@@ -6,8 +10,8 @@
   animate(section, { opacity: 1 }, { delay: 2 });
 </script>
 
-<section
-  class="hero-section opacity-0 z-10 flex flex-col md:flex-row justify-between items-center gap-10 md:mt-20"
+<SectionWrapper
+  className="hero-section opacity-0 flex flex-col md:flex-row justify-between items-center gap-10 md:mt-20"
 >
   <div class="flex flex-col max-md:justify-center max-md:text-center">
     <h2
@@ -37,4 +41,4 @@
       height="417"
     />
   </picture>
-</section>
+</SectionWrapper>
