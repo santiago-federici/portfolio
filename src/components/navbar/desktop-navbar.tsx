@@ -1,4 +1,5 @@
 import { navLinks } from "@/lib/constants";
+import ModeToggle from "../mode-toggle";
 
 export default function DesktopNavbar() {
   return (
@@ -18,6 +19,8 @@ export default function DesktopNavbar() {
           </li>
         ))}
       </ul>
+
+      <ModeToggle className="ml-4" />
     </nav>
   );
 }

@@ -3,6 +3,7 @@
 import { AnimatePresence, motion, MotionConfig, useCycle } from "motion/react";
 
 import { navLinks } from "@/lib/constants";
+import ModeToggle from "../mode-toggle";
 
 const navVars = {
   initial: {
@@ -70,7 +71,9 @@ export default function MobileNavbar() {
   // }, [menu]);
 
   return (
-    <div className="md:hidden">
+    <div className="flex gap-4 md:hidden">
+      <ModeToggle />
+
       <MenuButton menu={menu} toggleMenu={toggleMenu} />
 
       <AnimatePresence>

@@ -1,8 +1,9 @@
 "use client";
 
+import { cn } from "@/lib/utils";
 import { useEffect, useState } from "react";
 
-export function ModeToggle() {
+export default function ModeToggle({ className }: { className?: string }) {
   const [theme, setThemeState] = useState<"theme-light" | "dark" | "system">(
     "theme-light"
   );
@@ -21,7 +22,7 @@ export function ModeToggle() {
   }, [theme]);
 
   return (
-    <article>
+    <article className={cn("space-x-4", className)}>
       <button onClick={() => setThemeState("theme-light")}>Light</button>
       <button onClick={() => setThemeState("dark")}>Dark</button>
     </article>
