@@ -2,7 +2,7 @@
 
 import { AnimatePresence, motion, MotionConfig, useCycle } from "motion/react";
 
-import { navLinks } from "../../lib/constants";
+import { navLinks } from "@/lib/constants";
 
 const navVars = {
   initial: {

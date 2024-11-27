@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import "../styles/circle.css";
+import "@/styles/circle.css";
 
 const circleVariants = {
   initial: {
