@@ -1,0 +1,40 @@
+<script>
+  import { animate } from "motion";
+
+  const section = document.querySelectorAll(".hero-section");
+
+  animate(section, { opacity: 1 }, { delay: 2 });
+</script>
+
+<section
+  class="hero-section opacity-0 z-10 flex flex-col md:flex-row justify-between items-center gap-10 md:mt-20"
+>
+  <div class="flex flex-col max-md:justify-center max-md:text-center">
+    <h2
+      class="text-4xl md:text-5xl lg:text-7xl 2xl:text-8xl font-bold max-w-[15ch] mb-2 md:mb-4 lg:mb-6"
+    >
+      I develop beautiful <span
+        class="bg-gradient-to-r from-white to-primary text-transparent bg-clip-text"
+      >
+        web applications
+      </span>
+    </h2>
+
+    <p class="text-muted-foreground md:text-lg lg:text-xl">
+      Santiago Federici / FrontEnd Developer
+    </p>
+  </div>
+
+  <picture
+    class="h-full max-md:max-h-80 md:h-[350px] xl:h-[417px] aspect-[788/805] rounded-full overflow-hidden drop-shadow-[0_5px_5px_rgba(250,204,21,0.2)]"
+  >
+    <source srcset="/public/me.webp" type="image/webp" />
+    <img
+      src="/public/me.webp"
+      alt="Imagen de fondo"
+      class="object-cover w-full h-full"
+      width="408"
+      height="417"
+    />
+  </picture>
+</section>

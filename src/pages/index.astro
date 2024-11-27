@@ -1,10 +1,13 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import IntroCircle from "@/components/intro-circle";
+import HeroSection from "@/sections/hero-section.astro";
 ---
 
 <Layout title="Santiago Federici - Portfolio">
   <main class="z-[-2] flex flex-col py-20 wrapper">
     <IntroCircle client:load />
+
+    <HeroSection />
   </main>
 </Layout>
