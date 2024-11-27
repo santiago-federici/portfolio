@@ -1,3 +1,5 @@
+import typography from "@tailwindcss/typography";
+
 /** @type {import('tailwindcss').Config} */
 const defaultTheme = require("tailwindcss/defaultTheme");
 
@@ -52,5 +54,5 @@ export default {
       },
 		},
   },
-	plugins: [],
+	plugins: [typography],
 }
