@@ -23,7 +23,7 @@ function HeaderChildren() {
   return (
     <div className="wrapper flex items-center justify-between py-6">
       <h1 className="text-xl font-semibold hover:text-primary duration-200">
-        <a href="#">Portfolio</a>
+        <a href="/">Portfolio</a>
       </h1>
 
       <DesktopNavbar />
