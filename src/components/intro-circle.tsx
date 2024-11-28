@@ -1,4 +1,5 @@
 import { motion } from "motion/react";
+import useIntro from "@/hooks/useIntro";
 import "@/styles/circle.css";
 
 const circleVariants = {
@@ -14,14 +15,18 @@ const circleVariants = {
 };
 
 export default function IntroCircle() {
+  const { hasTimePassed: showAnimation } = useIntro();
+
   return (
-    <div className="absolute inset-0 bg-foreground z-[-1]">
-      <motion.div
-        className="intro-circle"
-        variants={circleVariants}
-        initial={"initial"}
-        animate={"animate"}
-      />
-    </div>
+    showAnimation && (
+      <div className="absolute inset-0 bg-foreground z-[-1]">
+        <motion.div
+          className="intro-circle"
+          variants={circleVariants}
+          initial={"initial"}
+          animate={"animate"}
+        />
+      </div>
+    )
   );
 }

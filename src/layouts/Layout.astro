@@ -3,7 +3,6 @@ import Header from "@/sections/header";
 
 import "@fontsource-variable/onest";
 import "@/styles/globals.css";
-import IntroCircle from "@/components/intro-circle";
 
 interface Props {
   title: string;
@@ -47,8 +46,6 @@ const { title } = Astro.props;
     <title>{title}</title>
   </head>
   <body class="font-serif">
-    <IntroCircle client:only="react" />
-
     <Header client:only="react" />
     <slot />
   </body>
