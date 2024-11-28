@@ -6,8 +6,17 @@ import SectionWrapper from "@/components/section-wrapper.astro";
   import { animate } from "motion";
 
   const section = document.querySelectorAll(".hero-section");
+  const storage = window.localStorage;
+  const currTimestamp = Date.now();
+  const timestamp = JSON.parse(storage.getItem("timestamp") || "1000");
 
-  animate(section, { opacity: [0, 1] }, { delay: 2 });
+  const timeLimit = 60 * 60 * 1000; // 1 hour
+
+  const hasTimePassed = currTimestamp - timestamp > timeLimit;
+
+  if (hasTimePassed) {
+    animate(section, { opacity: [0, 1] }, { delay: 2 });
+  }
 </script>
 
 <SectionWrapper

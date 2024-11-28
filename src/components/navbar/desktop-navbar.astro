@@ -1,0 +1,26 @@
+---
+import { navLinks } from "@/lib/constants";
+import ModeToggle from "../mode-toggle";
+---
+
+<nav class="hidden md:flex">
+  <ul class="flex gap-6">
+    {
+      navLinks.map((link) => (
+        <li>
+          <a
+            href={link.href}
+            rel={link.icon && "noreferrer"}
+            target={link.icon && "_blank"}
+            class="hover:text-primary duration-200"
+          >
+            {link.text && link.text}
+            {link.icon && <link.icon className="size-6" />}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+
+  <ModeToggle className="ml-4" client:idle />
+</nav>
