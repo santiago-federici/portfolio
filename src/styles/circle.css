@@ -6,5 +6,4 @@
   position: fixed;
   top: calc(50% - 120px);
   left: calc(50% - 120px);
-  z-index: -1;
 }

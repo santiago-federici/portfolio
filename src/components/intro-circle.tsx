@@ -15,11 +15,13 @@ const circleVariants = {
 
 export default function IntroCircle() {
   return (
-    <motion.div
-      className="intro-circle"
-      variants={circleVariants}
-      initial={"initial"}
-      animate={"animate"}
-    />
+    <div className="absolute inset-0 bg-foreground z-[-1]">
+      <motion.div
+        className="intro-circle"
+        variants={circleVariants}
+        initial={"initial"}
+        animate={"animate"}
+      />
+    </div>
   );
 }
