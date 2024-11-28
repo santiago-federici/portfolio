@@ -7,11 +7,11 @@ import SectionWrapper from "@/components/section-wrapper.astro";
 
   const section = document.querySelectorAll(".hero-section");
 
-  animate(section, { opacity: 1 }, { delay: 2 });
+  animate(section, { opacity: [0, 1] }, { delay: 2 });
 </script>
 
 <SectionWrapper
-  className="hero-section opacity-0 flex flex-col md:flex-row justify-between items-center gap-10 md:mt-20"
+  className="hero-section flex flex-col md:flex-row justify-between items-center gap-10 md:mt-20"
 >
   <div class="flex flex-col max-md:justify-center max-md:text-center">
     <h2
