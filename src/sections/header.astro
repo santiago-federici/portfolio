@@ -1,6 +1,7 @@
 ---
 import DesktopNavbar from "@/components/navbar/desktop-navbar.astro";
 import MobileNavbar from "@/components/navbar/mobile-navbar";
+import ThemeToggle from "@/components/theme-toggle.astro";
 ---
 
 <script>
@@ -35,8 +36,12 @@ import MobileNavbar from "@/components/navbar/mobile-navbar";
       <a href="/">Portfolio</a>
     </h1>
 
-    <DesktopNavbar />
+    <section class="flex items-center gap-6">
+      <ThemeToggle />
 
-    <MobileNavbar client:load />
+      <DesktopNavbar />
+
+      <MobileNavbar client:visible />
+    </section>
   </div>
 </header>

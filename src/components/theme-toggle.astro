@@ -1,0 +1,75 @@
+---
+import MoonIcon from "@/icons/moon-icon.astro";
+import SunIcon from "@/icons/sun-icon.astro";
+---
+
+<span
+  class="p-2 rounded-md bg-transparent border hover:bg-slate-500/30 duration-200 text-foreground cursor-pointer"
+  id="theme-toggle"
+  transition:persist="theme"
+>
+  <MoonIcon id="moon-icon" class="size-5" />
+  <SunIcon id="sun-icon" class="size-5" />
+</span>
+
+<script is:inline>
+  const sunIcon = document.getElementById("sun-icon");
+  const moonIcon = document.getElementById("moon-icon");
+  const themeToggleBtn = document.getElementById("theme-toggle");
+  const prefersDarkMode = window.matchMedia(
+    "(prefers-color-scheme: dark)"
+  ).matches;
+
+  function toggleTheme(activeTheme) {
+    localStorage.setItem("theme", activeTheme);
+
+    const isDarkMode = activeTheme === "dark";
+
+    console.log("isDarkMode: ", isDarkMode);
+
+    document.documentElement.classList.toggle("dark", isDarkMode);
+    document.documentElement.classList.toggle("light", !isDarkMode);
+
+    sunIcon?.classList.toggle("hidden", isDarkMode);
+    moonIcon?.classList.toggle("hidden", !isDarkMode);
+  }
+
+  if (
+    localStorage.getItem("theme") === "dark" ||
+    (!localStorage["theme"] && prefersDarkMode)
+  ) {
+    moonIcon?.classList.add("hidden");
+  } else {
+    sunIcon?.classList.add("hidden");
+  }
+
+  themeToggleBtn?.addEventListener("click", function () {
+    const activeTheme =
+      localStorage.getItem("theme") === "dark" ? "light" : "dark";
+
+    toggleTheme(activeTheme);
+  });
+
+  toggleTheme(
+    localStorage.getItem("theme") ?? (prefersDarkMode ? "dark" : "light")
+  );
+
+  const theme = (() => {
+    if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
+      return localStorage.getItem("theme");
+    }
+
+    if (window.matchMedia("(prefers-color-scheme: dark)")) {
+      return "dark";
+    }
+
+    return "light";
+  })();
+
+  window.localStorage.setItem("theme", theme);
+
+  document.addEventListener("astro:after-swap", function () {
+    if (localStorage.getItem("theme") === "dark")
+      document.documentElement.classList.toggle("dark", true);
+  });
+</script>
