@@ -2,14 +2,17 @@
 import Layout from "@/layouts/Layout.astro";
 import IntroCircle from "@/components/intro-circle";
 import HeroSection from "@/sections/hero-section.astro";
+import ExperienceSection from "@/sections/experience-section.astro";
 import ProjectsSection from "@/sections/projects-section.astro";
 ---
 
 <Layout title="Santiago Federici - Portfolio">
-  <main class="flex flex-col gap-20">
+  <main class="flex flex-col gap-40">
     <IntroCircle client:only="react" />
 
     <HeroSection />
+
+    <ExperienceSection />
 
     <ProjectsSection />
   </main>

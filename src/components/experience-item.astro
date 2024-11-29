@@ -1,0 +1,53 @@
+---
+import PaperIcon from "@/icons/paper-icon.astro";
+import ChevronIcon from "@/icons/chevron-icon.astro";
+
+interface Props {
+  title: string;
+  company: string;
+  description: string;
+  link?: string;
+  date: string;
+}
+
+const { title, company, description, link, date } = Astro.props;
+---
+
+<div
+  class="relative mx-10 grid before:absolute before:left-[-31px] before:block before:h-full before:border-l-2 before:border-foreground/20 before:content-[''] md:grid-cols-5 md:gap-10 md:space-x-4"
+>
+  <div class="relative pb-12 md:col-span-2">
+    <div class="sticky top-0">
+      <span
+        class="bg-primary -left-[42px] absolute rounded-full p-1 grid place-content-center"
+      >
+        <PaperIcon class="text-black size-4" />
+      </span>
+
+      <h3 class="text-xl font-bold text-primary">{title}</h3>
+
+      <h4 class="font-semibold text-lg text-foreground">
+        {company}
+      </h4>
+
+      <time class="text-sm text-muted-foreground">{date}</time>
+    </div>
+  </div>
+  <div
+    class="relative flex flex-col gap-2 pb-10 text-muted-foreground md:col-span-3"
+  >
+    {description}
+    {
+      link && (
+        <a
+          href={link}
+          role="link"
+          class="flex items-center text-lg font-medium text-primary hover:text-primary/60 duration-100"
+        >
+          See more
+          <ChevronIcon className="size-4" />
+        </a>
+      )
+    }
+  </div>
+</div>
