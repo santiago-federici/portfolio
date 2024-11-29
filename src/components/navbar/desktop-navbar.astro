@@ -1,11 +1,11 @@
 ---
-import { navLinks } from "@/lib/constants";
+import { NAV_LINKS } from "@/lib/constants.astro";
 ---
 
 <nav class="hidden md:flex">
   <ul class="flex gap-6">
     {
-      navLinks.map((link) => (
+      NAV_LINKS.map((link) => (
         <li>
           <a
             href={link.href}
@@ -14,7 +14,7 @@ import { navLinks } from "@/lib/constants";
             class="hover:text-primary duration-200"
           >
             {link.text && link.text}
-            {link.icon && <link.icon className="size-6" />}
+            {link.icon && <link.icon class="size-6" />}
           </a>
         </li>
       ))
