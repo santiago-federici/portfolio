@@ -1,6 +1,6 @@
 ---
 import DesktopNavbar from "@/components/navbar/desktop-navbar.astro";
-import MobileNavbar from "@/components/navbar/mobile-navbar";
+import MobileNavbar from "@/components/navbar/mobile-navbar.astro";
 import ThemeToggle from "@/components/theme-toggle.astro";
 ---
 
@@ -21,12 +21,7 @@ import ThemeToggle from "@/components/theme-toggle.astro";
   const hasTimePassed = currTimestamp - timestamp > timeLimit;
 
   if (isHome && hasTimePassed) {
-    animate(
-      header,
-      // { opacity: [0, 1], y: [-77, 0] },
-      { opacity: [0, 1] },
-      { delay: 1.6, duration: 0.6 }
-    );
+    animate(header, { opacity: [0, 1] }, { delay: 1.6, duration: 0.6 });
   }
 </script>
 
@@ -41,7 +36,7 @@ import ThemeToggle from "@/components/theme-toggle.astro";
 
       <DesktopNavbar />
 
-      <MobileNavbar client:visible />
+      <MobileNavbar />
     </section>
   </div>
 </header>

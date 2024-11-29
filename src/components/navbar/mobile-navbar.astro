@@ -1,0 +1,121 @@
+---
+import { NAV_LINKS } from "@/lib/constants.astro";
+---
+
+<script>
+  import { animate, stagger } from "motion";
+
+  const navbar = document.getElementById("navbar");
+  const menuToggle = document.getElementById("menu-toggle");
+
+  menuToggle?.addEventListener("click", () => {
+    const isNavbarOpen = !navbar?.classList.contains("scale-y-0");
+
+    toggleMenu(isNavbarOpen);
+  });
+
+  const toggleMenu = (isOpen: boolean | undefined) => {
+    if (isOpen === undefined) return;
+
+    if (isOpen) {
+      // aniamte the navbar to slide up
+      animate(
+        "#navbar",
+        { scaleY: [1, 0] },
+        { delay: 0.5, duration: 0.5, ease: [0.22, 1, 0.36, 1] }
+      );
+      navbar?.classList.add("scale-y-0"); // add the class "scale-y-0" to make isNavbarOpen variable turn false
+
+      // Animate the menu icon from a cross to a hamb menu:
+      animate("#menu-toggle-line-1", { rotate: 0, y: 0 }); // animate the first line of the menu icon
+      animate("#menu-toggle-line-2", { rotate: 0, opacity: 1 }); // animate the second line of the menu icon
+      animate("#menu-toggle-line-3", { rotate: 0, y: 0 }); // animate the third line of the menu icon
+
+      // Animate navbar items
+      animate(
+        "#nav-item",
+        { y: [0, "30vh"] },
+        {
+          duration: 0.7,
+          delay: stagger(0.09),
+          ease: [0.37, 0, 0.63, 1],
+        }
+      );
+    }
+
+    if (!isOpen) {
+      // aniamte the navbar to slide from top
+      animate(
+        "#navbar",
+        { scaleY: [0, 1] },
+        { duration: 0.5, ease: [0.12, 0, 0.39, 0] }
+      );
+      navbar?.classList.remove("scale-y-0"); // add the class "scale-y-0" to make isNavbarOpen variable turn true
+
+      // Animate the menu icon from a hamb menu to a cross:
+      animate("#menu-toggle-line-1", { rotate: 45, y: 6 }); // animate the first line of the menu icon
+      animate("#menu-toggle-line-2", { rotate: 45, opacity: 0 }); // animate the second line of the menu icon
+      animate("#menu-toggle-line-3", { rotate: -45, y: -6 }); // animate the third line of the menu icon
+
+      // Animate navbar items
+      animate(
+        "#nav-item",
+        { y: ["30vh", 0] },
+        {
+          duration: 0.7,
+          delay: stagger(0.09, { startDelay: 0.3 }),
+          ease: [0, 0.55, 0.45, 1],
+        }
+      );
+    }
+  };
+</script>
+
+<div class="flex gap-4 md:hidden">
+  <button
+    id="menu-toggle"
+    aria-label="Menu icon"
+    class="z-50 flex flex-col gap-y-1 px-1 py-1.5 lg:hidden"
+  >
+    <span class="h-0.5 w-5 bg-foreground" id="menu-toggle-line-1"></span>
+    <span class="h-0.5 w-5 bg-foreground" id="menu-toggle-line-2"></span>
+    <span class="h-0.5 w-5 bg-foreground" id="menu-toggle-line-3"></span>
+  </button>
+  <nav
+    id="navbar"
+    class="scale-y-0 z-40 bg-popover fixed h-fit top-[76px] origin-top left-0 w-full md:hidden"
+  >
+    <ul
+      id="navbar-ul"
+      class="flex flex-col text-3xl gap-10 wrapper pt-8 pb-16 md:hidden"
+    >
+      {
+        NAV_LINKS.slice(0, -2).map((link) => (
+          <li class="overflow-hidden">
+            <div id="nav-item">
+              <a href={link.href} class="hover:text-primary duration-200">
+                {link.text}
+              </a>
+            </div>
+          </li>
+        ))
+      }
+      <li class="flex gap-8 overflow-hidden">
+        {
+          NAV_LINKS.slice(-2).map((link) => (
+            <div id="nav-item">
+              <a
+                href={link.href}
+                rel="noreferrer"
+                target="_blank"
+                class="hover:text-primary duration-200"
+              >
+                {link.icon && <link.icon class="size-8" />}
+              </a>
+            </div>
+          ))
+        }
+      </li>
+    </ul>
+  </nav>
+</div>
