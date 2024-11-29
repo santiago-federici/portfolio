@@ -123,19 +123,13 @@ li {
 }
 
 .wrapper {
-  width: min(100% - 3rem, 100ch);
+  width: min(100% - 3rem, 90ch);
   margin-inline: auto;
 }
 
 @media screen and (width > 768px) {
   .wrapper {
-    width: min(100% - 7rem, 110ch);
-  }
-}
-
-@media screen and (width > 1024px) {
-  .wrapper {
-    width: min(100% - 7rem, 130ch);
+    width: min(100% - 6rem, 90ch);
   }
 }
 
