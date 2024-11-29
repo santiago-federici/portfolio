@@ -1,0 +1,61 @@
+---
+import GithubOutlineIcon from "@/icons/github-outline-icon.astro";
+import LinkIcon from "@/icons/link-icon.astro";
+import Button from "./button.astro";
+import TagBadge from "./tag-badge.astro";
+
+const { title, description, githubLink, previewLink, image, tags } =
+  Astro.props;
+---
+
+<article class="flex flex-col gap-6 mb-40">
+  <section class="flex flex-col gap-2 py-2">
+    <div class="flex gap-8 items-center">
+      <h3 class="text-2xl font-bold">{title}</h3>
+
+      <ul class="flex gap-3">
+        {
+          tags.map((tag: any) => (
+            <li>
+              <TagBadge className={tag.className}>
+                <tag.icon class="size-4" />
+                {tag.name}
+              </TagBadge>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <p class="text-lg text-muted-foreground">{description}</p>
+
+    <div class="flex gap-2 items-center my-3">
+      {
+        githubLink && (
+          <a href={githubLink}>
+            <Button>
+              <GithubOutlineIcon class="size-5" />
+              Code
+            </Button>
+          </a>
+        )
+      }
+      {
+        previewLink && (
+          <a href={previewLink}>
+            <Button>
+              <LinkIcon class="size-5" />
+              Preview
+            </Button>
+          </a>
+        )
+      }
+    </div>
+  </section>
+
+  <img
+    src={image}
+    alt={title}
+    class="w-full h-auto aspect-video rounded-md border"
+  />
+</article>
