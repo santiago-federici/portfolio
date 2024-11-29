@@ -25,8 +25,6 @@ import SunIcon from "@/icons/sun-icon.astro";
 
     const isDarkMode = activeTheme === "dark";
 
-    console.log("isDarkMode: ", isDarkMode);
-
     document.documentElement.classList.toggle("dark", isDarkMode);
     document.documentElement.classList.toggle("light", !isDarkMode);
 
