@@ -8,54 +8,48 @@ const { title, description, githubLink, previewLink, image, tags } =
   Astro.props;
 ---
 
-<article class="flex flex-col gap-6 mb-40">
-  <section class="flex flex-col gap-2 py-2">
-    <div class="flex gap-8 items-center">
-      <h3 class="text-xl font-bold">{title}</h3>
+<article class="flex gap-6 h-60 w-full mb-8">
+  <img
+    src={image}
+    alt={title}
+    class="w-auto h-full aspect-video rounded-md border border-slate-600"
+  />
 
-      <ul class="flex gap-3">
-        {
-          tags.map((tag: any) => (
-            <li>
-              <TagBadge className={tag.className}>
-                <tag.icon class="size-4" />
-                {tag.name}
-              </TagBadge>
-            </li>
-          ))
-        }
-      </ul>
-    </div>
+  <div class="flex flex-col gap-2 py-2">
+    <h4 class="text-xl font-bold">
+      {title}
+    </h4>
 
-    <p class="text-lg text-muted-foreground">{description}</p>
+    <ul class="flex gap-2 items-center">
+      {
+        tags.map((tag: any) => (
+          <TagBadge className={tag.className}>
+            <tag.icon className="size-3" />
+            {tag.name}
+          </TagBadge>
+        ))
+      }
+    </ul>
 
-    <div class="flex gap-2 items-center my-3">
+    <p class="text-muted-foreground py-2">{description}</p>
+
+    <div class="flex gap-4">
       {
         githubLink && (
-          <a href={githubLink}>
-            <Button>
-              <GithubOutlineIcon class="size-5" />
-              Code
-            </Button>
-          </a>
+          <Button>
+            <GithubOutlineIcon className="size-5" />
+            Code
+          </Button>
         )
       }
       {
         previewLink && (
-          <a href={previewLink}>
-            <Button>
-              <LinkIcon class="size-5" />
-              Preview
-            </Button>
-          </a>
+          <Button>
+            <LinkIcon className="size-5" />
+            Preview
+          </Button>
         )
       }
     </div>
-  </section>
-
-  <img
-    src={image}
-    alt={title}
-    class="w-full h-auto aspect-video rounded-md border"
-  />
+  </div>
 </article>
