@@ -1,0 +1,41 @@
+---
+import ChevronIcon from "@/icons/chevron-icon.astro";
+import CalendarIcon from "@/icons/calendar-icon.astro";
+import TopRightIcon from "@/icons/top-right-icon.astro";
+
+const { title, description, date, slug } = Astro.props;
+---
+
+<article class="bg-popover border rounded-md p-4 mb-6 flex flex-col gap-3">
+  <h4
+    class="md:text-lg font-bold hover:text-foreground/80 hover:underline underline-offset-[5px] decoration-dotted transition-100 group relative w-fit pr-6"
+  >
+    <a href={`/post/${slug}`}>
+      {title}
+
+      <TopRightIcon
+        className="size-4 absolute top-1/2 -translate-y-1/2 right-0 group-hover:-right-px duration-100"
+      />
+    </a>
+  </h4>
+
+  <p class="max-sm:text-sm text-muted-foreground">{description}</p>
+
+  <div class="flex justify-between items-center">
+    <span class="text-xs text-muted-foreground flex items-center gap-1">
+      <CalendarIcon className="size-3" />
+      {date}
+    </span>
+
+    <a
+      href={`/post/${slug}`}
+      role="link"
+      class="relative group font-medium text-primary hover:text-primary/60 duration-100 pr-4 hidden md:flex"
+    >
+      See more
+      <ChevronIcon
+        className="size-4 absolute right-0 top-1/2 -translate-y-1/2 group-hover:-right-px duration-100"
+      />
+    </a>
+  </div>
+</article>

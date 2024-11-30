@@ -1,0 +1,35 @@
+---
+import SectionTitle from "@/components/section-title.astro";
+import SectionWrapper from "@/components/section-wrapper.astro";
+import Layout from "@/layouts/Layout.astro";
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("posts");
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { slug, data } = post;
+
+const { title, description, date, tags } = data;
+
+const { Content } = await post.render();
+---
+
+<Layout title="Post">
+  <SectionWrapper className="mt-40 flex flex-col">
+    <SectionTitle>{title}</SectionTitle>
+    <p>{description}</p>
+    <p>{date}</p>
+
+    <span class="w-full h-px bg-card my-8"></span>
+
+    <div class="prose dark:prose-invert">
+      <Content />
+    </div>
+  </SectionWrapper>
+</Layout>
