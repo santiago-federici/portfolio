@@ -28,24 +28,15 @@ const { Content } = await post.render();
   <main class={cn(baseAnimation)}>
     <SectionWrapper className="flex flex-col">
       <header>
-        <SectionTitle
-          className="mb-4 text-pretty"
-          transition:name={`post-title-${slug}`}>{title}</SectionTitle
-        >
-        <p
-          class="text-muted-foreground mb-6"
-          transition:name={`post-description-${slug}`}
-        >
+        <SectionTitle className="mb-4 text-pretty">{title}</SectionTitle>
+        <p class="text-muted-foreground mb-6">
           {description}
         </p>
 
         <div
           class="w-full flex gap-4 max-md:flex-col md:justify-between md:items-center"
         >
-          <Badge
-            className="bg-card border text-muted-foreground"
-            transition:name={`post-date-${slug}`}
-          >
+          <Badge className="bg-card border text-muted-foreground">
             <CalendarIcon class="size-3" />{date}
           </Badge>
 
