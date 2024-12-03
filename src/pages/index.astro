@@ -4,10 +4,11 @@ import HeroSection from "@/sections/hero-section.astro";
 import ExperienceSection from "@/sections/experience-section.astro";
 import ProjectsSection from "@/sections/projects-section.astro";
 import PostsSection from "@/sections/posts-section.astro";
+import { cn, baseAnimation } from "@/lib/utils";
 ---
 
 <Layout title="Santiago Federici - Portfolio">
-  <main class="flex flex-col gap-40">
+  <main class={cn("flex flex-col gap-40", baseAnimation)}>
     <HeroSection />
 
     <ExperienceSection />

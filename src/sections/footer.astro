@@ -1,8 +1,14 @@
 ---
 import DesktopNavbar from "@/components/navbar/desktop-navbar.astro";
+import { cn, baseAnimation } from "@/lib/utils";
 ---
 
-<footer class="wrapper flex items-center justify-between pb-8 text-sm">
+<footer
+  class={cn(
+    "wrapper flex items-center justify-between pb-8 text-sm",
+    baseAnimation
+  )}
+>
   <p>© 2024 - Santiago Federici</p>
 
   <DesktopNavbar className="size-5" />

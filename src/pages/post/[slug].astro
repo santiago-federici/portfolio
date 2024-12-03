@@ -1,12 +1,12 @@
 ---
-import SectionTitle from "@/components/section-title.astro";
-import SectionWrapper from "@/components/section-wrapper.astro";
 import Layout from "@/layouts/Layout.astro";
-import { getCollection } from "astro:content";
+import SectionWrapper from "@/components/section-wrapper.astro";
+import SectionTitle from "@/components/section-title.astro";
 import CalendarIcon from "@/icons/calendar-icon.astro";
 import Separator from "@/components/separator.astro";
 import Badge from "@/components/badge.astro";
-import { cn } from "@/lib/utils";
+import { baseAnimation, cn } from "@/lib/utils";
+import { getCollection } from "astro:content";
 
 export async function getStaticPaths() {
   const posts = await getCollection("posts");
@@ -25,7 +25,7 @@ const { Content } = await post.render();
 ---
 
 <Layout title="Post">
-  <main>
+  <main class={cn(baseAnimation)}>
     <SectionWrapper className="flex flex-col">
       <header>
         <SectionTitle
