@@ -3,6 +3,10 @@ import SectionTitle from "@/components/section-title.astro";
 import SectionWrapper from "@/components/section-wrapper.astro";
 import Layout from "@/layouts/Layout.astro";
 import { getCollection } from "astro:content";
+import CalendarIcon from "@/icons/calendar-icon.astro";
+import Separator from "@/components/separator.astro";
+import Badge from "@/components/badge.astro";
+import { cn } from "@/lib/utils";
 
 export async function getStaticPaths() {
   const posts = await getCollection("posts");
@@ -23,16 +27,54 @@ const { Content } = await post.render();
 <Layout title="Post">
   <main>
     <SectionWrapper className="flex flex-col">
-      <SectionTitle transition:name={`post-title-${slug}`}>{title}</SectionTitle
+      <header>
+        <SectionTitle
+          className="mb-4 text-pretty"
+          transition:name={`post-title-${slug}`}>{title}</SectionTitle
+        >
+        <p
+          class="text-muted-foreground mb-6"
+          transition:name={`post-description-${slug}`}
+        >
+          {description}
+        </p>
+
+        <div
+          class="w-full flex gap-4 max-md:flex-col md:justify-between md:items-center"
+        >
+          <Badge
+            className="bg-card border text-muted-foreground"
+            transition:name={`post-date-${slug}`}
+          >
+            <CalendarIcon class="size-3" />{date}
+          </Badge>
+
+          <div class="flex flex-wrap text-nowrap items-center gap-2">
+            {
+              tags.map((tag) => (
+                <Badge className="bg-card border text-muted-foreground">
+                  {tag}
+                </Badge>
+              ))
+            }
+          </div>
+        </div>
+      </header>
+
+      <Separator />
+
+      <article
+        class={cn(
+          "prose prose-neutral w-full max-w-full dark:prose-invert",
+          "prose-headings:font-medium prose-headings:tracking-tight",
+          "prose-a:text-primary prose-a:underline prose-a:underline-offset-4 hover:prose-a:opacity-80",
+          "prose-ul:mb-3",
+          "prose-inline-code:rounded prose-inline-code:border prose-inline-code:bg-card prose-inline-code:p-[2px]",
+          "prose-pre:rounded-md prose-pre:border "
+        )}
       >
-      <p>{description}</p>
-      <p>{date}</p>
-
-      <span class="w-full h-px bg-card my-8"></span>
-
-      <div class="prose dark:prose-invert">
         <Content />
-      </div>
+      </article>
     </SectionWrapper>
   </main>
 </Layout>

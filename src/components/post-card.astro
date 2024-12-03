@@ -2,6 +2,7 @@
 import ChevronIcon from "@/icons/chevron-icon.astro";
 import CalendarIcon from "@/icons/calendar-icon.astro";
 import TopRightIcon from "@/icons/top-right-icon.astro";
+import Badge from "./badge.astro";
 
 const { title, description, date, slug } = Astro.props;
 ---
@@ -20,13 +21,21 @@ const { title, description, date, slug } = Astro.props;
     </a>
   </h4>
 
-  <p class="max-sm:text-sm text-muted-foreground">{description}</p>
+  <p
+    class="max-sm:text-sm text-muted-foreground"
+    transition:name={`post-description-${slug}`}
+  >
+    {description}
+  </p>
 
   <div class="flex justify-between items-center">
-    <span class="text-xs text-muted-foreground flex items-center gap-1">
+    <Badge
+      className="p-0 text-muted-foreground"
+      transition:name={`post-date-${slug}`}
+    >
       <CalendarIcon className="size-3" />
       {date}
-    </span>
+    </Badge>
 
     <a
       href={`/post/${slug}`}

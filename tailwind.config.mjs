@@ -1,3 +1,4 @@
+import plugin from 'tailwindcss/plugin';
 import typography from "@tailwindcss/typography";
 
 /** @type {import('tailwindcss').Config} */
@@ -5,7 +6,7 @@ const defaultTheme = require("tailwindcss/defaultTheme");
 
 export default {
   darkMode: ["class"],
-	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
+	content: ['./src/**/*.{astro,html,js,md,mdx,ts}'],
 	prefix: "",
   theme: {
     fontFamily: {
@@ -52,7 +53,27 @@ export default {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      typography: {
+        DEFAULT: {
+          css: {
+            'code::before': {
+              content: '""'
+            },
+            'code::after': {
+              content: '""'
+            },
+          }
+        },
+      },
 		},
   },
-	plugins: [typography],
+  plugins: [
+    typography,
+    plugin(function ({ addVariant }) {
+      addVariant(
+        'prose-inline-code',
+        '&.prose :where(:not(pre)>code):not(:where([class~="not-prose"] *))'
+      );
+    })
+  ]
 }
