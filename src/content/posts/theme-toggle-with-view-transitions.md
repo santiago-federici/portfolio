@@ -14,8 +14,6 @@ tags:
 
 Astro 5 introduced the new `<ClientRouter />` component for enabling View Transitions, which allows for seamless navigation experiences. However, while implementing a theme toggle with JavaScript, I encountered an issue: the theme would unexpectedly switch during navigation, causing a flashing screen effect. This post will walk you through the problem, my solution, and how I eliminated the flashing.
 
----
-
 ## The Problem
 
 I created a **theme toggle** that switches between light and dark modes using JavaScript. Initially, everything worked fine. However, after adding the `<ClientRouter />` component to enable View Transitions, I noticed two issues:
