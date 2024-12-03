@@ -12,17 +12,15 @@ tags:
 
 ## Introduction
 
-Astro 5 introduced the new `<ClientRouter />` component for enabling View Transitions, which allows for seamless navigation experiences. However, while implementing a theme toggle with JavaScript, I encountered an issue: the theme would unexpectedly switch during navigation, causing a flashing screen effect. This post will walk you through the problem, my solution, and how I eliminated the flashing.
+Astro 5 introduced the new `<ClientRouter />` component replacing the old `<ViewTransitions />` component for enabling View Transitions. However, while implementing a theme toggle, I encountered an issue: the theme would unexpectedly switch during navigation, causing a flashing screen effect. This post will walk you through the problem, my solution, and how I eliminated the flashing.
 
 ## The Problem
 
-I created a **theme toggle** that switches between light and dark modes using JavaScript. Initially, everything worked fine. However, after adding the `<ClientRouter />` component to enable View Transitions, I noticed two issues:
+I created a **theme toggle** that switches between light and dark modes. Initially, everything worked fine. However, after adding the `<ClientRouter />` component to enable View Transitions, I noticed two issues:
 
-1. **Theme Resetting on Navigation:**  
-   When navigating between pages, the theme would reset to light mode even if I had set it to dark mode.
+- **1. Theme resetting on navigation:** When navigating between pages, the theme would reset to light mode even if I had set it to dark mode.
 
-2. **Flashing Screen on Page Load:**  
-   After fixing the above issue, I encountered a flashing effect where the theme would briefly toggle to the wrong theme and then switch back to the correct one.
+- **2. Flashing screen on page load:** After fixing the above issue, I encountered a flashing effect where the theme would briefly toggle to the wrong theme and then switch back to the correct one.
 
 Here’s what my initial theme toggle implementation looked like:
 
