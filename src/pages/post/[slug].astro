@@ -21,15 +21,18 @@ const { Content } = await post.render();
 ---
 
 <Layout title="Post">
-  <SectionWrapper className="mt-40 flex flex-col">
-    <SectionTitle transition:name={`post-title-${slug}`}>{title}</SectionTitle>
-    <p>{description}</p>
-    <p>{date}</p>
+  <main>
+    <SectionWrapper className="flex flex-col">
+      <SectionTitle transition:name={`post-title-${slug}`}>{title}</SectionTitle
+      >
+      <p>{description}</p>
+      <p>{date}</p>
 
-    <span class="w-full h-px bg-card my-8"></span>
+      <span class="w-full h-px bg-card my-8"></span>
 
-    <div class="prose dark:prose-invert">
-      <Content />
-    </div>
-  </SectionWrapper>
+      <div class="prose dark:prose-invert">
+        <Content />
+      </div>
+    </SectionWrapper>
+  </main>
 </Layout>
