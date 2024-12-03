@@ -1,6 +1,6 @@
 ---
-title: "How to Fix Theme Toggle Flashing Screen When Using Astro View Transitions"
-description: "Learn how to resolve theme toggle issues and prevent flashing screens in your Astro project when implementing View Transitions using the new ClientRouter component."
+title: "Fix flashing screen when using Astro View Transitions and a theme toggle"
+description: "Learn how to prevent flashing screens in your Astro project when implementing View Transitions using the new ClientRouter component."
 date: "2024-11-25"
 tags:
   - Astro
