@@ -2,7 +2,7 @@
 import GithubOutlineIcon from "@/icons/github-outline-icon.astro";
 import LinkIcon from "@/icons/link-icon.astro";
 import Button from "./button.astro";
-import TagBadge from "./tag-badge.astro";
+import Badge from "./badge.astro";
 
 const { title, description, githubLink, previewLink, image, tags } =
   Astro.props;
@@ -23,10 +23,10 @@ const { title, description, githubLink, previewLink, image, tags } =
     <ul class="flex gap-2 items-center">
       {
         tags.map((tag: any) => (
-          <TagBadge className={tag.className}>
+          <Badge className={tag.className}>
             <tag.icon className="size-3" />
             {tag.name}
-          </TagBadge>
+          </Badge>
         ))
       }
     </ul>
