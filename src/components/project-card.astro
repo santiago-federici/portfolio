@@ -8,15 +8,15 @@ const { title, description, githubLink, previewLink, image, tags } =
   Astro.props;
 ---
 
-<article class="flex gap-6 h-60 w-full mb-8">
+<article class="flex max-lg:flex-col gap-6 w-full mb-12 lg:mb-8">
   <img
     src={image}
     alt={title}
-    class="w-auto h-full aspect-video rounded-md border border-slate-600"
+    class="w-auto h-full lg:h-60 aspect-video rounded-md border border-slate-600"
   />
 
-  <div class="flex flex-col gap-2 py-2">
-    <h4 class="text-xl font-bold">
+  <div class="flex flex-col gap-2 px-2 lg:py-2">
+    <h4 class="text-lg lg:text-xl font-bold">
       {title}
     </h4>
 
@@ -33,11 +33,11 @@ const { title, description, githubLink, previewLink, image, tags } =
 
     <p class="text-muted-foreground py-2">{description}</p>
 
-    <div class="flex gap-4">
+    <div class="flex gap-6">
       {
         githubLink && (
           <Button>
-            <GithubOutlineIcon className="size-5" />
+            <GithubOutlineIcon className="size-4 lg:size-5" />
             Code
           </Button>
         )
