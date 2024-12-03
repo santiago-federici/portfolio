@@ -2,39 +2,10 @@
 import SectionWrapper from "@/components/section-wrapper.astro";
 ---
 
-<script>
-  import { animate } from "motion";
-
-  const infoContainer = document.querySelectorAll(".info-container");
-  const imageContainer = document.querySelectorAll(".image-container");
-  const storage = window.localStorage;
-  const currTimestamp = Date.now();
-  const timestamp = JSON.parse(storage.getItem("timestamp") || "1000");
-
-  const timeLimit = 60 * 60 * 1000; // 1 hour
-
-  const hasTimePassed = currTimestamp - timestamp > timeLimit;
-
-  if (hasTimePassed) {
-    animate(
-      infoContainer,
-      { opacity: [0, 1], y: [100, 0] },
-      { delay: 1.8, duration: 0.8 }
-    );
-    animate(
-      imageContainer,
-      { opacity: [0, 1], y: [100, 0] },
-      { delay: 2, duration: 0.8 }
-    );
-  }
-</script>
-
 <SectionWrapper
   className="flex flex-col md:flex-row justify-between items-center gap-10"
 >
-  <div
-    class="info-container flex flex-col max-md:justify-center max-md:text-center"
-  >
+  <div class="flex flex-col max-md:justify-center max-md:text-center">
     <h2
       class="text-4xl md:text-5xl lg:text-6xl font-bold max-w-[15ch] mb-2 md:mb-4 lg:mb-6"
     >
@@ -51,7 +22,7 @@ import SectionWrapper from "@/components/section-wrapper.astro";
   </div>
 
   <picture
-    class="image-container h-full max-md:max-h-80 md:h-[280px] lg:h-[320px] aspect-[788/805] rounded-full overflow-hidden drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] dark:drop-shadow-[0_5px_5px_rgba(250,204,21,0.2)]"
+    class="h-full max-md:max-h-80 md:h-[280px] lg:h-[320px] aspect-[788/805] rounded-full overflow-hidden drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] dark:drop-shadow-[0_5px_5px_rgba(250,204,21,0.2)]"
   >
     <source srcset="/me.webp" type="image/webp" />
     <img

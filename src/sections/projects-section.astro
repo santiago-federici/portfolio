@@ -6,24 +6,7 @@ import CodeIcon from "@/icons/code-icon.astro";
 import { PROJECTS } from "@/lib/constants.astro";
 ---
 
-<script>
-  import { animate } from "motion";
-
-  const section = document.querySelectorAll(".projects-section");
-  const storage = window.localStorage;
-  const currTimestamp = Date.now();
-  const timestamp = JSON.parse(storage.getItem("timestamp") || "1000");
-
-  const timeLimit = 60 * 60 * 1000; // 1 hour
-
-  const hasTimePassed = currTimestamp - timestamp > timeLimit;
-
-  if (hasTimePassed) {
-    animate(section, { opacity: [0, 1] }, { delay: 2, duration: 0.8 });
-  }
-</script>
-
-<SectionWrapper className="projects-section">
+<SectionWrapper>
   <SectionTitle>
     <CodeIcon className="size-8 stroke-[2.5px]" />
     Projects

@@ -6,28 +6,7 @@ import ExperienceItem from "@/components/experience-item.astro";
 import { EXPERIENCE } from "@/lib/constants.astro";
 ---
 
-<script>
-  import { animate } from "motion";
-
-  const section = document.querySelectorAll("#experience");
-  const storage = window.localStorage;
-  const currTimestamp = Date.now();
-  const timestamp = JSON.parse(storage.getItem("timestamp") || "1000");
-
-  const timeLimit = 60 * 60 * 1000; // 1 hour
-
-  const hasTimePassed = currTimestamp - timestamp > timeLimit;
-
-  if (hasTimePassed) {
-    animate(
-      section,
-      { opacity: [0, 1], y: [100, 0] },
-      { delay: 1.8, duration: 0.8 }
-    );
-  }
-</script>
-
-<SectionWrapper className="flex flex-col" id="experience">
+<SectionWrapper className="flex flex-col">
   <SectionTitle>
     <BriefcaseIcon className="size-8 stroke-[2.5px]" />
     Experience
