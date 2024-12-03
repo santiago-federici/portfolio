@@ -1,5 +1,8 @@
 ---
 import { NAV_LINKS } from "@/lib/constants.astro";
+import { cn } from "@/lib/utils";
+
+const { className } = Astro.props;
 ---
 
 <nav class="hidden md:flex">
@@ -14,7 +17,7 @@ import { NAV_LINKS } from "@/lib/constants.astro";
             class="hover:text-primary duration-200"
           >
             {link.text && link.text}
-            {link.icon && <link.icon class="size-6" />}
+            {link.icon && <link.icon class={cn("size-6", className)} />}
           </a>
         </li>
       ))
