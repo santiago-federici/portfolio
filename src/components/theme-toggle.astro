@@ -3,14 +3,15 @@ import MoonIcon from "@/icons/moon-icon.astro";
 import SunIcon from "@/icons/sun-icon.astro";
 ---
 
-<span
+<button
+  aria-label="Theme toggle"
   class="p-2 rounded-md bg-transparent border hover:bg-slate-500/30 duration-200 text-foreground cursor-pointer"
   id="theme-toggle"
   transition:persist="theme"
 >
   <MoonIcon id="moon-icon" class="size-5" />
   <SunIcon id="sun-icon" class="size-5" />
-</span>
+</button>
 
 <script is:inline>
   const sunIcon = document.getElementById("sun-icon");
