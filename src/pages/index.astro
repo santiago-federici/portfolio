@@ -1,71 +1,20 @@
 ---
-import Layout from "../layouts/Layout.astro";
-
-import AboutMe from "../components/AboutMe.astro";
-import Badge from "../components/Badge.astro";
-import Pill from "../components/Pill.astro";
-import Projects from "../components/Projects.astro";
-import SectionContainer from "../components/SectionContainer.astro";
-
-import CodeIcon from "../icons/Code.astro";
-import GithubIcon from "../icons/Github.astro";
-import LinkedInIcon from "../icons/LinkedIn.astro";
-import UserCode from "../icons/UserCode.astro";
-import SectionTitle from "../components/SectionTitle.astro";
+import Layout from "@/layouts/Layout.astro";
+import HeroSection from "@/sections/hero-section.astro";
+import ExperienceSection from "@/sections/experience-section.astro";
+import ProjectsSection from "@/sections/projects-section.astro";
+import PostsSection from "@/sections/posts-section.astro";
+import { cn, baseAnimation } from "@/lib/utils";
 ---
 
-<Layout title="Santi's Portfolio - Frontend Web Developer.">
-	<main class="wrapper">
-		<SectionContainer id="top">
-			<div class="flex items-center gap-4">
-				<img
-					src="https://avatars.githubusercontent.com/u/88351679?v=4"
-					alt=""
-					class="rounded-full size-16 mb-2"
-				/>
+<Layout title="Santiago Federici - Portfolio">
+  <main class={cn("flex flex-col gap-40", baseAnimation)}>
+    <HeroSection />
 
-				<a
-					href="https://www.linkedin.com/in/santiago-federici/"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					<Badge>Ready to work</Badge>
-				</a>
-			</div>
+    <ExperienceSection />
 
-			<h1 class="font-bold mb-4 max-sm:text-4xl">Hey, I'm Santi!</h1>
-			<h3 class="w-9/12 text-pretty max-sm:text-lg max-sm:leading-5 opacity-80">
-				Trainee Frontend Web Developer from Mendoza, Argentina 🇦🇷. Currently studying at the university of Champagnat.
-			</h3>
+    <ProjectsSection />
 
-			<ul class="flex gap-2 mt-4">
-				<Pill href="https://github.com/santiago-federici">
-					<GithubIcon class="size-4" />
-					Github
-				</Pill>
-				<Pill href="https://www.linkedin.com/in/santiago-federici/">
-					<LinkedInIcon class="size-4" />
-					LinkedIn
-				</Pill>
-			</ul>
-		</SectionContainer>
-
-		<SectionContainer id="projects">
-			<SectionTitle>
-				<CodeIcon class="size-6" />
-				Projects
-			</SectionTitle>
-
-			<Projects />
-		</SectionContainer>
-
-		<SectionContainer id="about">
-			<SectionTitle>
-				<UserCode class="size-6" />
-				About Me
-			</SectionTitle>
-
-			<AboutMe />
-		</SectionContainer>
-	</main>
+    <PostsSection />
+  </main>
 </Layout>

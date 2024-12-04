@@ -1,0 +1,65 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import SectionWrapper from "@/components/section-wrapper.astro";
+import SectionTitle from "@/components/section-title.astro";
+import CalendarIcon from "@/icons/calendar-icon.astro";
+import Separator from "@/components/separator.astro";
+import Badge from "@/components/badge.astro";
+import { baseAnimation, cn } from "@/lib/utils";
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("posts");
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { slug, data } = post;
+
+const { title, description, date, tags } = data;
+
+const { Content } = await post.render();
+---
+
+<Layout title="Post">
+  <main class={cn(baseAnimation)}>
+    <SectionWrapper className="flex flex-col">
+      <header>
+        <SectionTitle className="mb-4 text-pretty">{title}</SectionTitle>
+        <p class="text-muted-foreground mb-6">
+          {description}
+        </p>
+
+        <div
+          class="w-full flex gap-4 max-md:flex-col md:justify-between md:items-center"
+        >
+          <Badge variant="tag">
+            <CalendarIcon class="size-3" />{date}
+          </Badge>
+
+          <div class="flex flex-wrap text-nowrap items-center gap-2">
+            {tags.map((tag) => <Badge variant="tag">{tag}</Badge>)}
+          </div>
+        </div>
+      </header>
+
+      <Separator />
+
+      <article
+        class={cn(
+          "prose prose-neutral w-full max-w-full dark:prose-invert",
+          "prose-headings:font-medium prose-headings:tracking-tight",
+          "prose-a:text-primary prose-a:underline prose-a:underline-offset-4 hover:prose-a:opacity-80",
+          "prose-ul:mb-3",
+          "prose-inline-code:rounded prose-inline-code:border prose-inline-code:bg-card prose-inline-code:p-[2px]",
+          "prose-pre:rounded-md prose-pre:border"
+        )}
+      >
+        <Content />
+      </article>
+    </SectionWrapper>
+  </main>
+</Layout>

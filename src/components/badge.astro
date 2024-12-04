@@ -1,0 +1,20 @@
+---
+import { cn } from "@/lib/utils";
+
+const { techColors, variant, className } = Astro.props;
+
+const baseClass =
+  "font-light flex gap-1 items-center rounded-md text-xs px-2 py-1 w-fit";
+const withBgClass = "bg-card border text-muted-foreground";
+const textMutedClass = "p-0 text-muted-foreground";
+
+const variantClass = {
+  tag: withBgClass,
+  project: techColors,
+  post: textMutedClass,
+}[variant as "tag" | "project" | "post"];
+---
+
+<span class={cn(baseClass, variantClass, className)}>
+  <slot />
+</span>

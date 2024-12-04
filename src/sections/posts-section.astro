@@ -1,0 +1,33 @@
+---
+import SectionTitle from "@/components/section-title.astro";
+import SectionWrapper from "@/components/section-wrapper.astro";
+import PostsIcon from "@/icons/posts-icon.astro";
+import PostCard from "@/components/post-card.astro";
+
+import { getCollection } from "astro:content";
+
+const posts = await getCollection("posts");
+---
+
+<SectionWrapper id="posts">
+  <SectionTitle>
+    <PostsIcon className="size-8 stroke-[2.5px]" />
+    Posts
+  </SectionTitle>
+
+  {
+    posts.map((post) => {
+      const { data, slug } = post;
+      const { title, description, date } = data;
+
+      return (
+        <PostCard
+          title={title}
+          description={description}
+          date={date}
+          slug={slug}
+        />
+      );
+    })
+  }
+</SectionWrapper>

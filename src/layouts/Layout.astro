@@ -1,140 +1,41 @@
 ---
-import Header from '../components/Header.astro';
-import '@fontsource-variable/onest';
+import Header from "@/sections/header.astro";
+import Footer from "@/sections/footer.astro";
+import "@/styles/globals.css";
+
 interface Props {
-	title: string;
+  title: string;
 }
 
 const { title } = Astro.props;
 ---
 
-<!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body>
-		<div class="relative h-full w-full bg-slate-950">
-			<div class="fixed bottom-0 left-0 right-0 top-[-400px] bg-[radial-gradient(circle_500px_at_50%_200px,#3e3e3e,transparent)]"></div>
-		</div>
-
-		<Header />
-		<slot />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link
+      rel="preload"
+      href="/fonts/onest/Onest-VariableFont_wght.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+    />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <!-- Script to set theme preference -->
+    <script is:inline>
+      if (typeof localStorage !== "undefined") {
+        const LOCAL_THEME = localStorage.getItem("theme");
+        document.documentElement.classList.add(LOCAL_THEME);
+      }
+    </script>
+  </head>
+  <body class="selection:bg-neutral-300 dark:selection:bg-neutral-700">
+    <Header />
+    <slot />
+    <Footer />
+  </body>
 </html>
-<style is:global>
-	:root {
-		--ff-base: 'Onest Variable', sans-serif;
-		--clr-heading: hsl(204, 100%, 1%);
-		--clr-text: hsl(204, 20%, 15%);
-		--clr-primary: ;
-		--clr-secondary: ;
-		--clr-accent: ;
-		--bg-pill: #e0e0e0;
-
-
-		/* Step -2: 11.1111px → 10.24px */
-		--step--2: clamp(0.64rem, 0.7134rem + -0.0947vi, 0.6944rem);
-		/* Step -1: 13.3333px → 12.8px */
-		--step--1: clamp(0.8rem, 0.8449rem + -0.058vi, 0.8333rem);
-		/* Step 0: 16px → 16px */
-		--step-0: clamp(1rem, 1rem + 0vi, 1rem);
-		/* Step 1: 19.2px → 20px */
-		--step-1: clamp(1.2rem, 1.1826rem + 0.087vi, 1.25rem);
-		/* Step 2: 23.04px → 25px */
-		--step-2: clamp(1.44rem, 1.3974rem + 0.213vi, 1.5625rem);
-		/* Step 3: 27.648px → 31.25px */
-		--step-3: clamp(1.728rem, 1.6497rem + 0.3915vi, 1.9531rem);
-		/* Step 4: 33.1776px → 39.0625px */
-		--step-4: clamp(2.0736rem, 1.9457rem + 0.6397vi, 2.4414rem);
-		/* Step 5: 39.8131px → 48.8281px */
-		--step-5: clamp(2.4883rem, 2.2923rem + 0.9799vi, 3.0518rem);
-	}
-
-	@media(prefers-color-scheme: dark) {
-  :root {
-    --clr-heading: hsl(0, 0%, 100%);
-    --clr-text: hsl(204, 20%, 85%);
-    --clr-primary: ;
-		--clr-secondary: ;
-		--clr-accent: ;
-		--bg-pill: #1F2937;
-  }
-}
-	*,
-	*::before,
-	*::after {
-		padding: 0;
-		margin: 0;
-		box-sizing: border-box;
-		font-family: var(--ff-base);
-	}
-	html {
-		color-scheme: light dark;
-		scroll-behavior: smooth;
-	}
-
-	@media (prefers-reduced-motion) {
-		html {
-			scroll-behavior: auto;
-		}
-	}
-
-	body {
-		color: var(--clr-text);
-		line-height: 1.6;
-		font-size: var(--step-0);
-		display: grid;
-		place-items: center;
-	}
-
-	.wrapper {
-		width: min(100% - 5rem, 90ch);
-		margin-inline: auto;
-		position: relative;
-		display: grid;
-		place-items: center;
-	}
-
-	h1,
-	h2,
-	h3,
-	h4 {
-		color: var(--clr-heading);
-		line-height: 1.1;
-		text-wrap: balance;
-	}
-
-	h1 {
-		font-size: var(--step-5);
-	}
-
-	h2 {
-		font-size: var(--step-2);
-	}
-
-	h3 {
-		font-size: var(--step-1);
-	}
-
-	p {
-		text-wrap: pretty;
-	}
-
-	button,
-	input {
-		font-size: var(--fs-300);
-	}
-
-	img {
-		max-width: 100%;
-		display: block;
-	}
-
-
-</style>

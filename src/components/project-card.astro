@@ -1,0 +1,80 @@
+---
+import GithubOutlineIcon from "@/icons/github-outline-icon.astro";
+import LinkIcon from "@/icons/link-icon.astro";
+import Button from "./button.astro";
+import Badge from "./badge.astro";
+
+interface Tag {
+  name: string;
+  className: string;
+  icon: (_props: Record<string, any>) => any;
+}
+
+interface Props {
+  title: string;
+  description: string;
+  githubLink?: string;
+  previewLink?: string;
+  image: string;
+  tags: Tag[];
+}
+
+const { title, description, githubLink, previewLink, image, tags } =
+  Astro.props;
+---
+
+<article class="flex max-lg:flex-col gap-6 w-full mb-12 lg:mb-8">
+  <picture class="w-auto h-full lg:h-60 aspect-video rounded-md border">
+    <source srcset={image} type="image/webp" />
+    <img
+      src={image}
+      alt={`Image fot ${title}`}
+      class="object-cover w-full h-full"
+      width="427"
+      height="240"
+      loading="lazy"
+    />
+  </picture>
+
+  <div class="flex flex-col gap-2 px-2 lg:py-2">
+    <h4 class="text-lg lg:text-xl font-bold">
+      {title}
+    </h4>
+
+    <ul class="flex gap-2 items-center">
+      {
+        tags.map((tag: any) => (
+          <Badge variant="project" techColors={tag.className}>
+            <tag.icon className="size-3" />
+            {tag.name}
+          </Badge>
+        ))
+      }
+    </ul>
+
+    <p class="text-muted-foreground py-2">{description}</p>
+
+    <div class="flex gap-6">
+      {
+        githubLink && (
+          <a href={githubLink} rel="noreferrer" target="_blank">
+            <Button>
+              <GithubOutlineIcon className="size-4 lg:size-5" />
+              Code
+            </Button>
+          </a>
+        )
+      }
+      {
+        previewLink && (
+          <a href={previewLink} rel="noreferrer" target="_blank">
+            <Button>
+              <LinkIcon className="size-5" />
+              Preview
+            </Button>
+          </a>
+        )
+      }
+    </div>
+  </div>
+</article>

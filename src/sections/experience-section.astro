@@ -1,0 +1,24 @@
+---
+import SectionTitle from "@/components/section-title.astro";
+import SectionWrapper from "@/components/section-wrapper.astro";
+import BriefcaseIcon from "@/icons/briefcase-icon.astro";
+import ExperienceItem from "@/components/experience-item.astro";
+import { EXPERIENCE } from "@/lib/constants.astro";
+---
+
+<SectionWrapper className="flex flex-col" id="experience">
+  <SectionTitle>
+    <BriefcaseIcon className="size-8 stroke-[2.5px]" />
+    Experience
+  </SectionTitle>
+
+  <ol class="mt-8">
+    {
+      EXPERIENCE.map((experience) => (
+        <li class="">
+          <ExperienceItem {...experience} />
+        </li>
+      ))
+    }
+  </ol>
+</SectionWrapper>

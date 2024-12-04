@@ -1,0 +1,128 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 120 5% 96%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 47.9 95.8% 53.1%;
+    --primary-foreground: 26 83.3% 14.1%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --border: 240 5.9% 90%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 0 2% 9%;
+    --foreground: 0 0% 95%;
+    --card: 24 9.8% 10%;
+    --card-foreground: 0 0% 95%;
+    --popover: 0 0% 9%;
+    --popover-foreground: 0 0% 95%;
+    --primary: 47.9 95.8% 53.1%;
+    --primary-foreground: 26 83.3% 14.1%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 240 5% 64.9%;
+    --border: 240 3.7% 15.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@font-face {
+  font-family: "Onest";
+  src: url("/fonts/onest/Onest-VariableFont_wght.woff2") format("woff2");
+  font-style: normal;
+  font-display: swap;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  font: inherit;
+}
+
+html {
+  hanging-punctuation: first last; /* doesn't have support in all browsers yet */
+  color-scheme: dark light;
+  scrollbar-gutter: stable;
+  font-family: "Onest", sans-serif;
+}
+
+body {
+  min-height: 100svh;
+}
+
+main {
+  margin-top: 10rem;
+  margin-bottom: 5rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+p {
+  max-width: 75ch;
+  text-wrap: pretty;
+}
+
+img,
+picture,
+video,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  font: inherit;
+}
+
+li {
+  list-style-type: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  /* doesn't have support in all browsers yet */
+  :has(:target) {
+    scroll-behavior: smooth;
+    scroll-padding-top: 10rem;
+  }
+}
+
+.wrapper {
+  width: min(100% - 3rem, 90ch);
+  margin-inline: auto;
+}
+
+@media screen and (width > 768px) {
+  .wrapper {
+    width: min(100% - 6rem, 90ch);
+  }
+}

@@ -1,0 +1,26 @@
+---
+import { NAV_LINKS } from "@/lib/constants.astro";
+import { cn } from "@/lib/utils";
+
+const { className } = Astro.props;
+---
+
+<nav class="hidden md:flex">
+  <ul class="flex gap-6">
+    {
+      NAV_LINKS.map((link) => (
+        <li>
+          <a
+            href={link.href}
+            rel={link.icon && "noreferrer"}
+            target={link.icon && "_blank"}
+            class="hover:text-primary duration-200"
+          >
+            {link.text && link.text}
+            {link.icon && <link.icon class={cn("size-6", className)} />}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>
