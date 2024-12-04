@@ -11,7 +11,7 @@ export default {
 	prefix: "",
   theme: {
     fontFamily: {
-      serif: ["Onest Variable", ...defaultTheme.fontFamily.serif],
+      onest: ["Onest Variable", ...defaultTheme.fontFamily.serif],
     },
     extend: {
       colors: {
