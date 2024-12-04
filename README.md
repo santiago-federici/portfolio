@@ -1,54 +1,85 @@
-# Astro Starter Kit: Basics
+<a href="https://santiago-federici-portfolio.vercel.app/" target="_blank" align="center">
+ <img src="/public/readme.webp" />
+</a>
 
-```sh
-npm create astro@latest -- --template basics
+<div align="center">
+    <a href="#-description" target="_blank">
+        Description
+    </a>
+    <span>&nbsp;✦&nbsp;</span>
+    <a href="#-stack" target="_blank">
+        Stack
+    </a>
+    <span>&nbsp;✦&nbsp;</span>
+    <a href="#-contributing" target="_blank">
+        Contributing
+    </a>
+    <span>&nbsp;✦&nbsp;</span>
+    <a href="#-commands" target="_blank">
+        Commands
+    </a>
+    <span>&nbsp;✦&nbsp;</span>
+    <a href="#-social-media" target="_blank">
+        Social Media
+    </a>
+</div>
+
+<h1 align="center">
+  Portfolio
+</h1>
+
+<div id="-description"></div>
+
+## 📝 Description
+
+Welcome to my portfolio web. Done with too much love❤️⭐.
+
+<div id="-stack"></div>
+
+## 🛠️ Stack
+
+- [**Astro**](https://astro.build/) - A new way to build the world's fastest websites 🚀.
+- [**Tailwind**](https://tailwindcss.com/) - A utility-first CSS framework 🖌️.
+
+<div id="-getting-started"></div>
+
+## 🤝 Contributing
+
+1. [Fork](https://github.com/santiago-federici/portfolio.git/fork) this repository.
+
+2. Install dependencies:
+
+```bash
+# Install pnpm globally if you haven't already:
+npm install -g pnpm
+
+# then install all dependencies:
+pnpm install
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+3. Run the development server:
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
+```bash
+pnpm dev
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+4. Open [**http://localhost:4321**](http://localhost:4321/) in your browser to see the result 🚀
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
+<div id="-commands"></div>
 
 ## 🧞 Commands
 
-All commands are run from the root of the project, from a terminal:
+|     | Command   | Action                                       |
+| :-- | :-------- | :------------------------------------------- |
+| ⚙️  | `install` | Installs the needed dependencies.            |
+| ⚙️  | `dev`     | Starts local dev server at `localhost:4321`. |
+| ⚙️  | `build`   | Build your production site to `./dist/`.     |
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+<div id="-social-media"></div>
 
-## 👀 Want to learn more?
+## 📲 My Social Media
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+[![linkedin](https://img.shields.io/badge/linkedin-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/santiago-federici/)
+[![github](https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/santiago-federici)
+[![twitter](https://img.shields.io/badge/twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/Santi_Federici)
+[![instagram](https://img.shields.io/badge/instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/santi_federici)
