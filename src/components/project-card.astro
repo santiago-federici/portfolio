@@ -4,13 +4,19 @@ import LinkIcon from "@/icons/link-icon.astro";
 import Button from "./button.astro";
 import Badge from "./badge.astro";
 
+interface Tag {
+  name: string;
+  className: string;
+  icon: (_props: Record<string, any>) => any;
+}
+
 interface Props {
   title: string;
   description: string;
   githubLink?: string;
   previewLink?: string;
   image: string;
-  tags: string[];
+  tags: Tag[];
 }
 
 const { title, description, githubLink, previewLink, image, tags } =
