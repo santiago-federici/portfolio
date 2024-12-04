@@ -36,18 +36,12 @@ const { Content } = await post.render();
         <div
           class="w-full flex gap-4 max-md:flex-col md:justify-between md:items-center"
         >
-          <Badge className="bg-card border text-muted-foreground">
+          <Badge variant="tag">
             <CalendarIcon class="size-3" />{date}
           </Badge>
 
           <div class="flex flex-wrap text-nowrap items-center gap-2">
-            {
-              tags.map((tag) => (
-                <Badge className="bg-card border text-muted-foreground">
-                  {tag}
-                </Badge>
-              ))
-            }
+            {tags.map((tag) => <Badge variant="tag">{tag}</Badge>)}
           </div>
         </div>
       </header>
