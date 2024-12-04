@@ -5,15 +5,20 @@ import "@/styles/globals.css";
 
 interface Props {
   title: string;
+  description: string;
 }
 
-const { title } = Astro.props;
+const { title, description } = Astro.props;
 ---
 
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
+    <meta name="description" content={description} />
+    <meta
+      name="keywords"
+      content="Santiago, Santi, Federici, Frontend, Developer, Portfolio, Astro, Tailwind, Website, Website Developer, Web Developer, Frontend Developer, FrontEnd"
+    />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link

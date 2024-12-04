@@ -17,14 +17,14 @@ export async function getStaticPaths() {
 }
 
 const { post } = Astro.props;
-const { slug, data } = post;
+const { data } = post;
 
 const { title, description, date, tags } = data;
 
 const { Content } = await post.render();
 ---
 
-<Layout title="Post">
+<Layout title={`${title} - Santiago Federici`} description={description}>
   <main class={cn(baseAnimation)}>
     <SectionWrapper className="flex flex-col">
       <header>
