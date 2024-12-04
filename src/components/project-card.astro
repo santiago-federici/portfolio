@@ -44,10 +44,12 @@ const { title, description, githubLink, previewLink, image, tags } =
     <ul class="flex gap-2 items-center">
       {
         tags.map((tag: any) => (
-          <Badge variant="project" techColors={tag.className}>
-            <tag.icon className="size-3" />
-            {tag.name}
-          </Badge>
+          <li>
+            <Badge variant="project" techColors={tag.className}>
+              <tag.icon className="size-3" />
+              {tag.name}
+            </Badge>
+          </li>
         ))
       }
     </ul>

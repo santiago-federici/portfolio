@@ -83,7 +83,7 @@ import { NAV_LINKS } from "@/lib/constants.astro";
   </button>
   <nav
     id="navbar"
-    class="scale-y-0 z-40 bg-popover fixed h-fit top-[76px] origin-top left-0 w-full md:hidden"
+    class="scale-y-0 z-40 fixed h-fit top-[76px] origin-top left-0 w-full md:hidden bg-background border shadow-2xl"
   >
     <ul
       id="navbar-ul"
@@ -93,7 +93,13 @@ import { NAV_LINKS } from "@/lib/constants.astro";
         NAV_LINKS.slice(0, -2).map((link) => (
           <li class="overflow-hidden">
             <div id="nav-item">
-              <a href={link.href} class="hover:text-primary duration-200">
+              <a
+                href={link.href}
+                rel={link.icon && "noreferrer"}
+                target={link.icon && "_blank"}
+                aria-label={link.ariaLabel}
+                class="hover:text-primary duration-200"
+              >
                 {link.text}
               </a>
             </div>
@@ -106,8 +112,9 @@ import { NAV_LINKS } from "@/lib/constants.astro";
             <div id="nav-item">
               <a
                 href={link.href}
-                rel="noreferrer"
-                target="_blank"
+                rel={link.icon && "noreferrer"}
+                target={link.icon && "_blank"}
+                aria-label={link.ariaLabel}
                 class="hover:text-primary duration-200"
               >
                 {link.icon && <link.icon class="size-8" />}

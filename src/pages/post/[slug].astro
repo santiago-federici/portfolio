@@ -40,9 +40,15 @@ const { Content } = await post.render();
             <CalendarIcon class="size-3" />{date}
           </Badge>
 
-          <div class="flex flex-wrap text-nowrap items-center gap-2">
-            {tags.map((tag) => <Badge variant="tag">{tag}</Badge>)}
-          </div>
+          <ul class="flex flex-wrap text-nowrap items-center gap-2">
+            {
+              tags.map((tag) => (
+                <li>
+                  <Badge variant="tag">{tag}</Badge>
+                </li>
+              ))
+            }
+          </ul>
         </div>
       </header>
 
