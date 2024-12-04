@@ -7,7 +7,9 @@ import Badge from "./badge.astro";
 const { title, description, date, slug } = Astro.props;
 ---
 
-<article class="bg-popover border rounded-md p-4 mb-6 flex flex-col gap-3">
+<article
+  class="border border-neutral-300 dark:border-border rounded-md p-4 mb-6 flex flex-col gap-3"
+>
   <h4
     class="md:text-lg font-bold hover:text-foreground/80 hover:underline underline-offset-[5px] decoration-dotted transition-100 group relative w-fit pr-6"
   >
