@@ -14,6 +14,7 @@ const { className } = Astro.props;
             href={link.href}
             rel={link.icon && "noreferrer"}
             target={link.icon && "_blank"}
+            aria-label={link.ariaLabel}
             class="hover:text-primary duration-200"
           >
             {link.text && link.text}
