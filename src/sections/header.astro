@@ -4,11 +4,22 @@ import MobileNavbar from "@/components/navbar/mobile-navbar.astro";
 import ThemeToggle from "@/components/theme-toggle.astro";
 ---
 
+<script>
+  const trigger = document.querySelector(".context-menu-trigger");
+
+  trigger?.addEventListener("contextmenu", (e) => {
+    e.preventDefault();
+    window.location.replace("/design-system");
+  });
+</script>
+
 <header
   class="fixed w-full top-0 mx-auto z-50 backdrop-blur-sm bg-background/95"
 >
   <div class="wrapper flex items-center justify-between py-4">
-    <h1 class="text-xl font-semibold hover:text-primary duration-200">
+    <h1
+      class="context-menu-trigger text-xl font-semibold hover:text-primary duration-200"
+    >
       <a href="/">Portfolio</a>
     </h1>
 
