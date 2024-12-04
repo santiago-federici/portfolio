@@ -1,5 +1,4 @@
 ---
-import PaperIcon from "@/icons/paper-icon.astro";
 import ChevronIcon from "@/icons/chevron-icon.astro";
 
 interface Props {
@@ -39,6 +38,8 @@ const { title, company, description, link, date } = Astro.props;
       link && (
         <a
           href={link}
+          rel="noreferrer"
+          target="_blank"
           role="link"
           class="group flex items-center text-lg font-medium text-primary hover:text-primary/60 duration-100 w-fit"
         >

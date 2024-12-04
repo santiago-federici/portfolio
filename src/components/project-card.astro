@@ -4,6 +4,15 @@ import LinkIcon from "@/icons/link-icon.astro";
 import Button from "./button.astro";
 import Badge from "./badge.astro";
 
+interface Props {
+  title: string;
+  description: string;
+  githubLink?: string;
+  previewLink?: string;
+  image: string;
+  tags: string[];
+}
+
 const { title, description, githubLink, previewLink, image, tags } =
   Astro.props;
 ---
@@ -36,18 +45,22 @@ const { title, description, githubLink, previewLink, image, tags } =
     <div class="flex gap-6">
       {
         githubLink && (
-          <Button>
-            <GithubOutlineIcon className="size-4 lg:size-5" />
-            Code
-          </Button>
+          <a href={githubLink} rel="noreferrer" target="_blank">
+            <Button>
+              <GithubOutlineIcon className="size-4 lg:size-5" />
+              Code
+            </Button>
+          </a>
         )
       }
       {
         previewLink && (
-          <Button>
-            <LinkIcon className="size-5" />
-            Preview
-          </Button>
+          <a href={previewLink} rel="noreferrer" target="_blank">
+            <Button>
+              <LinkIcon className="size-5" />
+              Preview
+            </Button>
+          </a>
         )
       }
     </div>
