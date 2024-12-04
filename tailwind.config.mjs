@@ -3,16 +3,12 @@ import twAnimate from 'tailwindcss-animate';
 import typography from "@tailwindcss/typography";
 
 /** @type {import('tailwindcss').Config} */
-const defaultTheme = require("tailwindcss/defaultTheme");
 
 export default {
   darkMode: ["class"],
 	content: ['./src/**/*.{astro,html,js,md,mdx,ts}'],
 	prefix: "",
   theme: {
-    fontFamily: {
-      onest: ["Onest Variable", ...defaultTheme.fontFamily.serif],
-    },
     extend: {
       colors: {
         border: "hsl(var(--border))",

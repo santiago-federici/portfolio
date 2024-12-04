@@ -43,6 +43,13 @@
   }
 }
 
+@font-face {
+  font-family: "Onest";
+  src: url("/fonts/onest/Onest-VariableFont_wght.woff2") format("woff2");
+  font-style: normal;
+  font-display: swap;
+}
+
 *,
 *::after,
 *::before {
@@ -59,6 +66,7 @@ html {
   hanging-punctuation: first last; /* doesn't have support in all browsers yet */
   color-scheme: dark light;
   scrollbar-gutter: stable;
+  font-family: "Onest";
 }
 
 body {
