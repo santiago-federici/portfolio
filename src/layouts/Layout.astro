@@ -1,4 +1,6 @@
 ---
+import Analytics from "@vercel/analytics/astro";
+
 import Header from "@/sections/header.astro";
 import Footer from "@/sections/footer.astro";
 import "@/styles/globals.css";
@@ -42,5 +44,6 @@ const { title, description } = Astro.props;
     <Header />
     <slot />
     <Footer />
+    <Analytics />
   </body>
 </html>
